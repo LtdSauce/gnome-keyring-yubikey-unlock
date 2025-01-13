@@ -19,14 +19,14 @@ I encrypt the `keyring-name : password` pair with GnuPG and save it as `secret-f
 
 > I recommend you to **configure Yubikey as GPG smartcard**. The system would just ask you to unlock gnome-keyring with your default GPG software. You may generate a new GPG key for yubikey, or move your existing GPG key into yubikey. Refer to google for these knowledge.
 
-First, download this repo. Note the `--recursive` flag, that one's important
+**Firstly**, download this repo. Note the `--recursive` flag, that one's important
 
 ```
 git clone https://github.com/recolic/gnome-keyring-yubikey-unlock --recursive
 cd gnome-keyring-yubikey-unlock/src && make && cd ..
 ```
 
-Secondly, choose an implementation: `standalone` impl always unlocks your default keyring, and `lib` impl requires an extra library.
+**Secondly**, choose an implementation: `standalone` impl always unlocks your default keyring, and `lib` impl requires an extra library.
 
 <details>
   <summary>Standalone Implementation</summary>
@@ -77,7 +77,7 @@ sudo pacman -S libgnome-keyring
 If your distribution is not providing libgnome-keyring, you can get the `.so` library from <https://archlinux.org/packages/extra/x86_64/libgnome-keyring/download>. 
 </details>
 
-Then, create your secret file. You may use my naive script (just in case you don't know GnuPG usage), or create an GnuPG-encrypted file by yourself.
+**Thirdly**, create your secret file. You may use my naive script (just in case you don't know GnuPG usage), or create an GnuPG-encrypted file by yourself.
 
 For example, you could say `login:My_Very_Long_Login_Password`. (You may use `seahorse` or `tools/list_keyrings.sh` to determine the name of your keyring)
 
@@ -91,7 +91,7 @@ gnome-keyring-yubikey-unlock/create_secret_file.sh /path/to/your_secret [Your Gn
 
 </details>
 
-Then, add the following command to gnome-autostart. If you don't know how to do it, [read me](doc/how-to-gnome-autostart.md).
+**Then**, add the following command to gnome-autostart. If you don't know how to do it, [read me](doc/how-to-gnome-autostart.md).
 
 ```
 /path/to/this/project/unlock_keyrings.sh /path/to/your_secret
