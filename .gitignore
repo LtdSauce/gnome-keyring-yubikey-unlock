@@ -5,3 +5,6 @@ bin/unlock_keyrings
 .idea
 testinput
 
+# Ignore clangd generated files
+.cache
+compile_commands.json
